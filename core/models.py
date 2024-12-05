@@ -8,6 +8,9 @@ class User(models.Model):
     is_vendor = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.name
+
 
 class Vendor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,related_name='vendor')
@@ -22,7 +25,7 @@ class Category(models.Model):
     slug = models.SlugField(max_length=255,unique=True)
     parent = models.ForeignKey('self',on_delete=models.CASCADE,null=True,blank=True,related_name ='subcategories')
 
-     def __str__(self):
+    def __str__(self):
         return self.name
 
 class Product(models.Model):
@@ -55,9 +58,9 @@ class OrderItem(models.Model):
     quantity = models.PositiveIntegerField(default=1)
     
 class Cart(models.Model):
-    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='cart',null=True,blank=True, blank=True)
+    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='cart',null=True, blank=True)
     session_id = models.CharField(max_length=255,blank=True,null=True)
-    items = models.ManyToManyField(Product, through='CartItem')
+    item = models.ManyToManyField(Product, through='CartItem')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -79,7 +82,7 @@ class Payment(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
 class Coupon(models.Model):
-    code = models.CharField(max_length=25,unique=True,null=True,blank=True,unique=True,db_index=True,max_length=255)
+    code = models.CharField(max_length=25,unique=True,null=True,blank=True,db_index=True)
     discount = models.DecimalField(max_digits=10,decimal_places=2)
     valid_from = models.DateTimeField()
     valid_to = models.DateTimeField()

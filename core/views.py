@@ -1,4 +1,4 @@
-from rest_framework import serializers
+from rest_framework import viewsets
 from .models import (
     User,Vendor,Category,Product,Order,OrderItem,Cart,CartItem,Shipping,Payment
     ,Coupon,Review,WishList,Notification,Blog,Contact,FAQ,Analytics,Configuration,
@@ -12,90 +12,90 @@ from .serializers import (
     ,SubscriptionSerializer,RefundSerializer
 )
 
-class UserViewSet(viewset.ModelViewSet):
+class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-class VendorViewSet(viewset.ModelViewSet):
+class VendorViewSet(viewsets.ModelViewSet):
     queryset = Vendor.objects.all()
     serializer_class = VendorSerializer
 
-class CategoryViewSet(viewset.ModelViewSet):    
+class CategoryViewSet(viewsets.ModelViewSet):    
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
-class ProductViewSet(viewset.ModelViewSet):
+class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
-class OrderViewSet(viewset.ModelViewSet):
+class OrderViewSet(viewsets.ModelViewSet):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
 
-class OrderItemViewSet(viewset.ModelViewSet):
+class OrderItemViewSet(viewsets.ModelViewSet):
     queryset = OrderItem.objects.all()
     serializer_class = OrderItemSerializer
 
-class CartViewSet(viewset.ModelViewSet):
+class CartViewSet(viewsets.ModelViewSet):
     queryset = Cart.objects.all()
     serializer_class = CartSerializer
 
-class CartItemViewSet(viewset.ModelViewSet):
+class CartItemViewSet(viewsets.ModelViewSet):
     queryset = CartItem.objects.all()
     serializer_class = CartItemSerializer
 
-class ShippingViewSet(viewset.ModelViewSet):
+class ShippingViewSet(viewsets.ModelViewSet):
     queryset = Shipping.objects.all()
     serializer_class = ShippingSerializer
 
-class PaymentViewSet(viewset.ModelViewSet):
+class PaymentViewSet(viewsets.ModelViewSet):
     queryset = Payment.objects.all()
     serializer_class = PaymentSerializer    
 
-class CouponViewSet(viewset.ModelViewSet):
+class CouponViewSet(viewsets.ModelViewSet):
     queryset = Coupon.objects.all()
     serializer_class = CouponSerializer
 
-class ReviewViewSet(viewset.ModelViewSet):
+class ReviewViewSet(viewsets.ModelViewSet):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
 
-class WishListViewSet(viewset.ModelViewSet):
+class WishListViewSet(viewsets.ModelViewSet):
     queryset = WishList.objects.all()
     serializer_class = WishListSerializer
 
-class NotificationViewSet(viewset.ModelViewSet):
+class NotificationViewSet(viewsets.ModelViewSet):
     queryset = Notification.objects.all()
     serializer_class = NotificationSerializer
 
-class BlogViewSet(viewset.ModelViewSet):
+class BlogViewSet(viewsets.ModelViewSet):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
 
-class ContactViewSet(viewset.ModelViewSet):
+class ContactViewSet(viewsets.ModelViewSet):
     queryset = Contact.objects.all()
     serializer_class = ContactSerializer
 
-class FAQViewSet(viewset.ModelViewSet):
+class FAQViewSet(viewsets.ModelViewSet):
     queryset = FAQ.objects.all()
     serializer_class = FAQSerializer
 
-class AnalyticsViewSet(viewset.ModelViewSet):   
+class AnalyticsViewSet(viewsets.ModelViewSet):   
     queryset = Analytics.objects.all()
     serializer_class = AnalyticsSerializer
 
-class ConfigurationViewSet(viewset.ModelViewSet):   
+class ConfigurationViewSet(viewsets.ModelViewSet):   
     queryset = Configuration.objects.all()
     serializer_class = ConfigurationSerializer
 
-class TaxViewSet(viewset.ModelViewSet):
+class TaxViewSet(viewsets.ModelViewSet):
     queryset = Tax.objects.all()
     serializer_class = TaxSerializer
 
-class SubscriptionViewSet(viewset.ModelViewSet):
+class SubscriptionViewSet(viewsets.ModelViewSet):
     queryset = Subscription.objects.all()
     serializer_class = SubscriptionSerializer
 
-class RefundViewSet(viewset.ModelViewSet):
+class RefundViewSet(viewsets.ModelViewSet):
     queryset = Refund.objects.all()
     serializer_class = RefundSerializer
